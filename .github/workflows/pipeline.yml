@@ -52,7 +52,7 @@ jobs:
       - name: Apply version bump (patch)
         run: npm version patch
       - name: Git push version bump
-        run: git push origin "${{ github.event.push.ref }}" --follow-tags --force
+        run: git push origin "${{ github.ref_name }}" --follow-tags --force
       - id: set-version
         name: Output version change
         run: npm pkg get version
