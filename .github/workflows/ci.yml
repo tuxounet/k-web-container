@@ -6,7 +6,8 @@ name: CI Pipeline
 on:
   push:
     branches: ["v0", "ci"]
-
+    tags:
+      - "*"
 jobs:
   build:
     runs-on: ubuntu-latest
