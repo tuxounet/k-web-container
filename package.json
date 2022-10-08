@@ -2,13 +2,20 @@
   "name": "@tuxounet/k-web-container",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/index.js",
+  "main": "out/cli.js",
   "scripts": {
     "start": "node .",
     "build": "tsc -p tsconfig.json",
+    "build-all": "npm run clean && npm run build && npm run esbuild-node && npm run esbuild-browser",
+    "esbuild-browser": "esbuild src/browser.ts --bundle --minify --sourcemap=external --outfile=out/browser.js",
+    "esbuild-browser:dev": "esbuild src/browser.ts --bundle --outfile=out/browser.js",
+    "esbuild-browser:watch": "esbuild src/browser.ts --bundle --watch --outfile=out/browser.js",
+    "esbuild-node": "esbuild src/cli.ts --bundle --platform=node --minify --sourcemap=external --outfile=out/cli.js",
+    "esbuild-node:dev": "esbuild src/cli.ts --bundle --platform=node --sourcemap=external --outfile=out/cli.js",
+    "esbuild-node:watch": "esbuild src/cli.ts --bundle --platform=node --watch --sourcemap=external --outfile=out/cli.js",
     "lint": "eslint ./ --fix",
-    "clean": "rm -rf dist build",
-    "ts-node": "ts-node",
+    "clean": "rm -rf dist build out coverage",
+    "ts-node": "ts-node ./src/cli.ts",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
@@ -20,7 +27,7 @@
   "author": {
     "name": "Krux"
   },
-  "license": "ISC",
+  "license": "apache2",
   "bugs": {
     "url": "https://github.com/tuxounet/k-web-container/issues"
   },
@@ -30,6 +37,7 @@
     "@types/node": "^18.8.3",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
+    "esbuild": "^0.15.10",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^23.0.0",

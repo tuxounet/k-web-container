@@ -1,4 +1,4 @@
-import { Bootstrapper } from "./Bootstrap";
+import { Bootstrapper } from "./components/Bootstrap";
 
 const bootstrap = new Bootstrapper();
 
