@@ -1,7 +1,7 @@
 import { Releasable } from "./types";
 import { Injector } from "./Injector";
 
-export abstract class BaseInjectable implements Releasable {
+export class BaseInjectable implements Releasable {
   constructor() {
     if (this.className == null) this.className = "unknow";
   }
