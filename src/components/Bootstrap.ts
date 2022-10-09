@@ -1,14 +1,15 @@
-import { Kernel } from "./Kernel";
+import { injectBootstrap } from "../di/InjectBootstrap";
+import { Kernel } from "../kernel/Kernel";
 
 export class Bootstrapper {
   async main(): Promise<number> {
-    const kernel = new Kernel();
-    await kernel.start();
+    const [mainKernel, releaseMainKernel] = injectBootstrap<Kernel>(Kernel);
+    await mainKernel.boot();
 
     console.info("idle");
 
-    await kernel.shutdown();
-
+    await mainKernel.shutdown();
+    releaseMainKernel();
     return 0;
   }
 }

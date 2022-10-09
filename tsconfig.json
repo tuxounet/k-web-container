@@ -37,7 +37,8 @@
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
     "types": [
       "node",
-      "jest"
+      "jest",
+      "reflect-metadata"
     ] /* Specify type package names to be included without being referenced in a source file. */,
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
     // "moduleSuffixes": [],                             /* List of file name suffixes to search when resolving a module. */
@@ -107,5 +108,5 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "**/*.test.ts", "**/dist", "**/coverge", "**/out"]
+  "exclude": ["node_modules", "**/dist", "**/coverge", "**/out"]
 }
