@@ -1,6 +1,6 @@
-import { Bootstrapper } from "./components/Bootstrap";
+import { Bootstrapper } from "./bootstrap/Bootstrap";
 
-const bootstrap = new Bootstrapper();
+const bootstrap = new Bootstrapper("CLI");
 
 bootstrap
   .main()

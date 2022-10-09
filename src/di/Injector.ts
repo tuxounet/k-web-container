@@ -1,10 +1,12 @@
 import "reflect-metadata";
+import { IBootstrapContext } from "../bootstrap/types/IBootstrapContext";
 
-import { BaseInjectable } from "./BaseInjectable";
 import { Type } from "./types";
 
 export class Injector extends Map {
-  public resolve<T extends BaseInjectable>(target: Type<any>): T {
+  context?: IBootstrapContext;
+
+  public resolve<T>(target: Type<any>): T {
     const params: any = Reflect.getMetadata("design:paramtypes", target);
     const tokens = params === undefined ? [] : params;
     const injections = tokens.map((token: Type<any>) => {

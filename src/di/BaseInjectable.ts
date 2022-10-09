@@ -8,7 +8,7 @@ export class BaseInjectable implements Releasable {
 
   injector?: Injector;
   className?: string;
-  resolve<T extends BaseInjectable>(target: new (...args: any[]) => any): T {
+  resolve<T>(target: new (...args: any[]) => any): T {
     if (this.injector == null) {
       throw new Error("di injector not set");
     }
