@@ -1,8 +1,6 @@
 import { Bootstrapper } from "./bootstrap/Bootstrap";
 
-const bootstrap = new Bootstrapper("CLI");
-
-bootstrap
+new Bootstrapper("CLI")
   .main()
   .then((rc) => {
     console.info("END with rc", rc);

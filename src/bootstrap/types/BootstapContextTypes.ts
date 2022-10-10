@@ -1,1 +1,1 @@
-export type BootstapContextTypes = "Brower" | "CLI";
+export type BootstapContextTypes = "NONE" | "CLI" | "TESTING";

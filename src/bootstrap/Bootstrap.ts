@@ -2,27 +2,20 @@ import { injectBootstrap } from "../di/InjectBootstrap";
 import { Kernel } from "../kernel/Kernel";
 import { BootstapContextTypes } from "./types/BootstapContextTypes";
 import { IBootstrapContext } from "./types/IBootstrapContext";
-import browser_bootstrap_context from "./contexts/BrowserContext";
 import cli_bootstrap_context from "./contexts/CLIContext";
 
 export class Bootstrapper {
-  constructor(private readonly contextType: BootstapContextTypes) {
-    switch (contextType) {
-      case "CLI":
-        this.bootstrapContext = Object.assign({}, cli_bootstrap_context);
-        break;
-      case "Brower":
-        this.bootstrapContext = Object.assign({}, browser_bootstrap_context);
-    }
-  }
+  constructor(private readonly contextType: BootstapContextTypes) {}
 
-  bootstrapContext: IBootstrapContext;
   async main(): Promise<number> {
-    const [mainKernel, releaseMainKernel] = injectBootstrap<Kernel>(
-      Kernel,
-      this.bootstrapContext
-    );
-    await mainKernel.boot();
+    let bootstrapContext: IBootstrapContext = { type: "NONE" };
+    switch (this.contextType) {
+      case "CLI":
+        bootstrapContext = Object.assign({}, cli_bootstrap_context);
+        break;
+    }
+    const [mainKernel, releaseMainKernel] = injectBootstrap<Kernel>(Kernel);
+    await mainKernel.boot(bootstrapContext);
 
     console.info("idle");
 
