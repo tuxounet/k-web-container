@@ -10,11 +10,13 @@
     "esbuild-node": "esbuild src/index.ts --bundle --platform=node --minify --sourcemap=external --outfile=out/index.js",
     "esbuild-node:dev": "esbuild src/index.ts --bundle --platform=node --sourcemap=external --outfile=out/index.js",
     "esbuild-node:watch": "esbuild src/index.ts --bundle --platform=node --watch --sourcemap=external --outfile=out/index.js",
+    
     "lint": "eslint ./ --fix",
     "clean": "rm -rf dist build out coverage",
     "ts-node": "ts-node ./src/index.ts",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:watch-coverage": "jest --watch --coverage"
   },
   "repository": {
     "type": "git",

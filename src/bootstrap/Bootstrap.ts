@@ -14,7 +14,10 @@ export class Bootstrapper {
         bootstrapContext = Object.assign({}, cli_bootstrap_context);
         break;
     }
-    const [mainKernel, releaseMainKernel] = injectBootstrap<Kernel>(Kernel);
+    const [mainKernel, releaseMainKernel] = injectBootstrap<Kernel>(
+      Kernel,
+      "CLI"
+    );
     await mainKernel.boot(bootstrapContext);
 
     console.info("idle");

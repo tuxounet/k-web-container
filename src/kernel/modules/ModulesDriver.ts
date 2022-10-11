@@ -1,6 +1,6 @@
 import { BaseInjectable } from "../../di/BaseInjectable";
 import { InjectableClass } from "../../di/types";
-import { PropertiesDriver } from "../config/PropertiesDriver";
+import { PropertiesDriver } from "../properties/PropertiesDriver";
 import { NetworkDriver } from "../network/NetworkDriver";
 import { FsDriver } from "../fs/FsDriver";
 

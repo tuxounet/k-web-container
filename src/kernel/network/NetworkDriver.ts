@@ -1,6 +1,6 @@
 import { BaseInjectable } from "../../di/BaseInjectable";
 import { InjectableClass } from "../../di/types";
-import { PropertiesDriver } from "../config/PropertiesDriver";
+import { PropertiesDriver } from "../properties/PropertiesDriver";
 import { GenericError } from "../errors/types/GenericError";
 import { AxiosNetworkProvider } from "./providers/AxiosNetworkProvider";
 import { INetworkClientHttpRequest } from "./types/INetworkClientHttpRequest";

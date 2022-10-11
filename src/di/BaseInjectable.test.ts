@@ -4,8 +4,10 @@ import { injectBootstrap } from "./InjectBootstrap";
 export class DummyInjectable extends BaseInjectable {}
 
 test("expected abstraction behaviour", () => {
-  const [dummy, releaseDummy] =
-    injectBootstrap<DummyInjectable>(DummyInjectable);
+  const [dummy, releaseDummy] = injectBootstrap<DummyInjectable>(
+    DummyInjectable,
+    "TESTING"
+  );
   expect(dummy).not.toBeUndefined();
   expect(dummy.injector).not.toBeUndefined();
   expect(dummy.className).toEqual("DummyInjectable");

@@ -1,7 +1,7 @@
 import { IBootstrapContext } from "../bootstrap/types/IBootstrapContext";
 import { BaseInjectable } from "../di/BaseInjectable";
 import { EntryClass, InjectableClass } from "../di/types";
-import { PropertiesDriver } from "./config/PropertiesDriver";
+import { PropertiesDriver } from "./properties/PropertiesDriver";
 import { ModulesDriver } from "./modules/ModulesDriver";
 import { NetworkDriver } from "./network/NetworkDriver";
 
